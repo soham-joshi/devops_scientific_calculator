@@ -84,5 +84,18 @@ public class Application {
         }
     }
 
+	public static double natlog(double x)
+    {
+        if (x <= 0) 
+        {
+            throw new IllegalArgumentException("Number cannot be negative/zero.");
+        }
+
+        else
+        {
+            return Math.log(x);
+        }
+    }
+
 
 }
