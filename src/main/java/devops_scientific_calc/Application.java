@@ -62,5 +62,27 @@ public class Application {
         }
     }
 
+	public static double fact(double x)
+    {
+        double value = 1;
+        double n = x;
+        
+        if (x < 0) 
+        {
+            throw new IllegalArgumentException("Number cannot be negative.");
+        }
+
+        else
+        {
+            while(n > 0)
+            {
+                value = value * n;
+                n = n - 1;
+            }
+            
+            return value;
+        }
+    }
+
 
 }
