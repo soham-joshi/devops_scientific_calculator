@@ -97,5 +97,19 @@ public class Application {
         }
     }
 
+	public static double powerf(double b, double e)
+    {
+        if (b == 0 && e <= 0) 
+        {
+            throw new IllegalArgumentException("When base is 0 exponent cannot be negative/zero.");
+        }
+        
+        else
+        {
+            return Math.pow(b, e);
+        }
+    }
+
+
 
 }
