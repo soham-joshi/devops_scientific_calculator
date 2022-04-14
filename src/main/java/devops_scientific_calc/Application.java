@@ -9,6 +9,7 @@ public class Application {
         System.out.println("Scientific Calculator");
 		Integer choice = 0;
 		boolean break_flag = false;
+		// double num,num1,num2;
 		do
 		{
 			System.out.println("Function Menu");
@@ -34,6 +35,11 @@ public class Application {
 				break_flag = false;
 			}
 
+			else
+            {
+                
+            }
+
 
 		}
 		while(break_flag);
@@ -42,6 +48,19 @@ public class Application {
 
 		scanner.close();
 	}
+
+	public static double sqroot(double x)
+    {
+        if (x < 0) 
+        {
+            throw new IllegalArgumentException("Number cannot be negative.");
+        }
+
+        else
+        {
+            return Math.sqrt(x);
+        }
+    }
 
 
 }
