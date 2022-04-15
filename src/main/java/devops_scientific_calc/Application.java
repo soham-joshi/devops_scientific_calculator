@@ -5,11 +5,14 @@ public class Application {
 
 	public static void main(String[] args) 
 	{
+
+        Application calculator = new Application();
+
 		Scanner scanner = new Scanner(System.in);
         System.out.println("Scientific Calculator");
 		Integer choice = 0;
 		boolean break_flag = false;
-		// double num,num1,num2;
+		double num,num1,num2;
 		do
 		{
 			System.out.println("Function Menu");
@@ -37,7 +40,40 @@ public class Application {
 
 			else
             {
+                switch(choice)
+                {
+                case 1:
+                System.out.println("Square Root");
+                System.out.print("Enter a number : ");
+                num = Double.parseDouble(scanner.nextLine());
+                System.out.println("The square root of " + num + " is " + calculator.sqroot(num) + "\n");
+                break;
                 
+                case 2:
+                System.out.println("Factorial");
+                System.out.print("Enter a number : ");
+                num = Double.parseDouble(scanner.nextLine());
+                System.out.println("The factorial of " + num + " is " + calculator.fact(num) + "\n");
+                break;
+                
+                case 3:
+                System.out.println("Natural Logarithm");
+                System.out.print("Enter a number : ");
+                num = Double.parseDouble(scanner.nextLine());
+                System.out.println("The natural logarithm of " + num + " is " + calculator.natlog(num) + "\n");
+                break;
+                
+                case 4:
+                System.out.println("Power Function");
+                System.out.println("Enter two numbers");
+                System.out.print("Enter base: ");
+                num1 = Double.parseDouble(scanner.nextLine());
+                System.out.print("Enter exponent: ");
+                num2 = Double.parseDouble(scanner.nextLine());
+                System.out.println("The value of " + num1 + " raised to " + num2 + " is " + calculator.powerf(num1, num2) + "\n");
+                break;
+                default: System.out.println("Exiting program due to invalid input"); break_flag = false;
+                }
             }
 
 
@@ -49,7 +85,7 @@ public class Application {
 		scanner.close();
 	}
 
-	public static double sqroot(double x)
+	public double sqroot(double x)
     {
         if (x < 0) 
         {
@@ -62,7 +98,7 @@ public class Application {
         }
     }
 
-	public static double fact(double x)
+	public double fact(double x)
     {
         double value = 1;
         double n = x;
@@ -84,7 +120,7 @@ public class Application {
         }
     }
 
-	public static double natlog(double x)
+	public double natlog(double x)
     {
         if (x <= 0) 
         {
@@ -97,7 +133,7 @@ public class Application {
         }
     }
 
-	public static double powerf(double b, double e)
+	public double powerf(double b, double e)
     {
         if (b == 0 && e <= 0) 
         {
