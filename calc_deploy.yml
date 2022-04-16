@@ -1,0 +1,10 @@
+---
+- name: Pulling Application Image
+  hosts: all
+  tasks:
+    - name: Pull DockerHub Image
+      docker_image:
+        name: 'sohamjoshi/devops_calculator'
+        source: pull
+      # vars:
+        # - ansible_python_interpreter: /usr/bin/python3

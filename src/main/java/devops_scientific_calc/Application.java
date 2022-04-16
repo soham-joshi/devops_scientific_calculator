@@ -35,7 +35,7 @@ public class Application {
 
 			if(choice == 5)
 			{
-				break_flag = false;
+				break_flag = true;
 			}
 
 			else
@@ -78,7 +78,7 @@ public class Application {
 
 
 		}
-		while(break_flag);
+		while(!break_flag);
 
 
 
