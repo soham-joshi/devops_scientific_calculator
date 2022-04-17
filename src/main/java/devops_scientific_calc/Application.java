@@ -1,7 +1,14 @@
 package devops_scientific_calc;
 import java.util.*;
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
 
 public class Application {
+
+    public Application() {
+    }
+
+    private static final Logger logger = LogManager.getLogger(Application.class);
 
 	public static void main(String[] args) 
 	{
@@ -87,15 +94,19 @@ public class Application {
 
 	public double sqroot(double x)
     {
+        logger.info("Started executing square root function");
         if (x < 0) 
         {
+            logger.info("Failed square root function");
             throw new IllegalArgumentException("Number cannot be negative.");
         }
 
         else
         {
+            logger.info("Completed executing square root function");
             return Math.sqrt(x);
         }
+
     }
 
 	public double fact(double x)
