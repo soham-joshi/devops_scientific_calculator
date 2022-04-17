@@ -1,2 +1,2 @@
-[localhost]
-localhost ansible_user=soham_temp
+[azure]
+40.81.233.44 ansible_user=soham

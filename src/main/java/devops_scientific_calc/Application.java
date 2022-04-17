@@ -14,13 +14,18 @@ public class Application {
 	{
 
         Application calculator = new Application();
-
 		Scanner scanner = new Scanner(System.in);
+        
         System.out.println("Scientific Calculator");
+        
+        logger.info("Application started!");
+
 		Integer choice = 0;
 		boolean break_flag = false;
 		double num,num1,num2;
-		do
+		
+
+        do
 		{
 			System.out.println("Function Menu");
             System.out.println("");
@@ -31,12 +36,14 @@ public class Application {
             System.out.println("5. Exit");
             System.out.print("Enter your choice: ");
 
-			try 
+			try
             {
                 choice = Integer.parseInt(scanner.nextLine());
+                logger.info("Integer scanned!");
             } 
             catch (NumberFormatException e) 
             {
+                logger.error("Invalid choice!");
                 e.printStackTrace();
             }
 
@@ -49,61 +56,60 @@ public class Application {
             {
                 switch(choice)
                 {
-                case 1:
-                System.out.println("Square Root");
-                System.out.print("Enter a number : ");
-                num = Double.parseDouble(scanner.nextLine());
-                System.out.println("The square root of " + num + " is " + calculator.sqroot(num) + "\n");
-                break;
-                
-                case 2:
-                System.out.println("Factorial");
-                System.out.print("Enter a number : ");
-                num = Double.parseDouble(scanner.nextLine());
-                System.out.println("The factorial of " + num + " is " + calculator.fact(num) + "\n");
-                break;
-                
-                case 3:
-                System.out.println("Natural Logarithm");
-                System.out.print("Enter a number : ");
-                num = Double.parseDouble(scanner.nextLine());
-                System.out.println("The natural logarithm of " + num + " is " + calculator.natlog(num) + "\n");
-                break;
-                
-                case 4:
-                System.out.println("Power Function");
-                System.out.println("Enter two numbers");
-                System.out.print("Enter base: ");
-                num1 = Double.parseDouble(scanner.nextLine());
-                System.out.print("Enter exponent: ");
-                num2 = Double.parseDouble(scanner.nextLine());
-                System.out.println("The value of " + num1 + " raised to " + num2 + " is " + calculator.powerf(num1, num2) + "\n");
-                break;
-                default: System.out.println("Exiting program due to invalid input"); break_flag = false;
+                    case 1:
+                    logger.info("Square Root operation selected.");
+                    System.out.println("Square Root");
+                    System.out.print("Enter a number : ");
+                    num = Double.parseDouble(scanner.nextLine());
+                    System.out.println("The square root of " + num + " is " + calculator.sqroot(num) + "\n");
+                    break;
+                    
+                    case 2:
+                    logger.info("Factorial operation selected.");
+                    System.out.println("Factorial");
+                    System.out.print("Enter a number : ");
+                    num = Double.parseDouble(scanner.nextLine());
+                    System.out.println("The factorial of " + num + " is " + calculator.fact(num) + "\n");
+                    break;
+                    
+                    case 3:
+                    logger.info("Natural Logarithm operation selected.");
+                    System.out.println("Natural Logarithm");
+                    System.out.print("Enter a number : ");
+                    num = Double.parseDouble(scanner.nextLine());
+                    System.out.println("The natural logarithm of " + num + " is " + calculator.natlog(num) + "\n");
+                    break;
+                    
+                    case 4:
+                    logger.info("Power operation selected.");
+                    System.out.println("Power Function");
+                    System.out.println("Enter two numbers");
+                    System.out.print("Enter base: ");
+                    num1 = Double.parseDouble(scanner.nextLine());
+                    System.out.print("Enter exponent: ");
+                    num2 = Double.parseDouble(scanner.nextLine());
+                    System.out.println("The value of " + num1 + " raised to " + num2 + " is " + calculator.powerf(num1, num2) + "\n");
+                    break;
+                    default: System.out.println("Exiting program due to invalid input"); break_flag = false;
+                            logger.info("Invalid input - exit program ");
                 }
             }
 
 
 		}
 		while(!break_flag);
-
-
-
 		scanner.close();
 	}
 
 	public double sqroot(double x)
     {
-        logger.info("Started executing square root function");
         if (x < 0) 
         {
-            logger.info("Failed square root function");
             throw new IllegalArgumentException("Number cannot be negative.");
         }
 
         else
         {
-            logger.info("Completed executing square root function");
             return Math.sqrt(x);
         }
 
@@ -114,8 +120,9 @@ public class Application {
         double value = 1;
         double n = x;
         
-        if (x < 0) 
+        if (x < 0)
         {
+            logger.error("Illegal argument.");
             throw new IllegalArgumentException("Number cannot be negative.");
         }
 
@@ -135,6 +142,7 @@ public class Application {
     {
         if (x <= 0) 
         {
+            logger.error("Illegal argument.");
             throw new IllegalArgumentException("Number cannot be negative/zero.");
         }
 
@@ -148,6 +156,7 @@ public class Application {
     {
         if (b == 0 && e <= 0) 
         {
+            logger.error("Illegal arguments.");
             throw new IllegalArgumentException("When base is 0 exponent cannot be negative/zero.");
         }
         
