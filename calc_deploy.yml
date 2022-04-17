@@ -1,7 +1,6 @@
 ---
 - name: Pulling Application Image
   hosts: all
-  connection: local
   tasks:
     - name: Pull DockerHub Image
       docker_image:
