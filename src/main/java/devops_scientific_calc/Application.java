@@ -18,7 +18,6 @@ public class Application {
         
         System.out.println("Scientific Calculator");
         
-
 		Integer choice = 0;
 		boolean break_flag = false;
 		double num,num1,num2;
