@@ -33,7 +33,8 @@ public class Application {
             System.out.println("3. Natural Logarithm");
             System.out.println("4. Power Function");
             System.out.println("5. Exit");
-            System.out.print("Enter your choice: ");
+            System.out.print("Choose an operation: ");
+            System.out.println("");
 
 			try
             {
@@ -98,12 +99,15 @@ public class Application {
         logger.info("SQUARE ROOT "  + "Input " + x);
         if (x < 0) 
         {
+            logger.error("Negative input to square root.");
             throw new IllegalArgumentException("Number cannot be negative.");
         }
 
         else
         {
-            return Math.sqrt(x);
+            double answer = Math.sqrt(x);
+            logger.info("SQUARE ROOT "  + "Answer " + answer);
+            return answer;
         }
 
     }
@@ -117,7 +121,7 @@ public class Application {
         
         if (x < 0)
         {
-            logger.error("Illegal argument.");
+            logger.error("Negative input to factorial.");
             throw new IllegalArgumentException("Number cannot be negative.");
         }
 
@@ -128,6 +132,8 @@ public class Application {
                 value = value * n;
                 n = n - 1;
             }
+
+            logger.info("FACTORIAL "  + "Answer " + value);
             
             return value;
         }
@@ -139,13 +145,15 @@ public class Application {
 
         if (x <= 0) 
         {
-            logger.error("Illegal argument.");
+            logger.error("Negative input natural logarithm.");
             throw new IllegalArgumentException("Number cannot be negative/zero.");
         }
 
         else
         {
-            return Math.log(x);
+            double answer = Math.log(x);
+            logger.info("NATURAL LOGARITHM "  + "Answer " + answer);
+            return answer;
         }
     }
 
@@ -155,13 +163,15 @@ public class Application {
 
         if (b == 0 && e <= 0) 
         {
-            logger.error("Illegal arguments.");
+            logger.error("Illegal base and exponent.");
             throw new IllegalArgumentException("When base is 0 exponent cannot be negative/zero.");
         }
         
         else
         {
-            return Math.pow(b, e);
+            double answer = Math.pow(b, e); 
+            logger.info("POWER "  + "Answer " + answer);
+            return answer;
         }
     }
 
