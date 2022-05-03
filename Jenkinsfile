@@ -14,7 +14,7 @@ pipeline {
         stage('GitHub Pull Code') {
             steps {
                 git([url: 'https://github.com/soham-joshi/devops_scientific_calculator.git', branch: 'main', credentialsId: githubcreds])
-                // git branch: 'main', url: 'https://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@github.com/soham-joshi/devops_scientific_calculator.git'
+                // git branch: 'main', url: 'https://_@github.com/soham-joshi/devops_scientific_calculator.git'
             }
             
         }
